@@ -9,13 +9,13 @@
     
     <style>
         :root {
-            /* Updated Color Palette */
-            --color-background: #F8F9FA; /* Softest Grey/Off-White */
-            --color-card-bg: #FFFFFF; /* Pure White */
-            --color-text-primary: #212529; /* Dark Grey/Near Black */
-            --color-text-secondary: #6C757D; /* Medium Grey */
-            --color-accent: #004D99; /* Deep Ocean Blue (UMT Theme Accent) */
-            --color-border: #E9ECEF; /* Light Border Grey */
+            /* Color Palette */
+            --color-background: #F8F9FA; 
+            --color-card-bg: #FFFFFF; 
+            --color-text-primary: #212529; 
+            --color-text-secondary: #6C757D; 
+            --color-accent: #004D99; /* Deep Ocean Blue */
+            --color-border: #E9ECEF; 
             --border-radius: 12px;
             --grid-gap: 16px;
         }
@@ -55,13 +55,14 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             overflow: hidden;
         }
         
+        /* Subtle scale-up hover effect */
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transform: scale(1.02); 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
@@ -90,51 +91,42 @@
         .card-profile {
             grid-column: span 2;
             grid-row: span 2;
+            
+            /* Setting the Background Image with a dark overlay for contrast */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--color-accent); /* Fallback */
+            
+            /* Setting default text color to white for contrast */
+            color: white; 
         }
 
-        .profile-content h1 {
-            font-size: 2.5rem;
-            margin-top: 0;
-            margin-bottom: 5px;
-            color: var(--color-text-primary);
-        }
-
-        .profile-tagline {
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--color-accent);
-            margin-bottom: 15px;
-        }
-
-        .profile-content p {
-            margin-bottom: 5px;
-            color: var(--color-text-secondary);
-        }
-
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: var(--color-accent);
-            text-decoration: none;
-            font-weight: 500;
-            margin-right: 15px;
-            transition: color 0.2s;
+        /* Contrast adjustments for elements inside the Profile Card */
+        .card-profile .card-header {
+            color: #E9ECEF; /* Lighter color */
         }
         
-        .social-links a:hover {
-            color: var(--color-text-primary);
+        .card-profile .profile-content h1 {
+            color: white; /* Ensure name is bright white */
+        }
+        
+        .card-profile .profile-tagline {
+            color: #ADB5BD; /* Light grey for subtle accents */
         }
 
-        /* Card 2 (Location): Small box (1x1) - Default size */
-        .card-location .time {
-            /* Displaying current local time in Kuala Terengganu */
-            font-size: 2rem;
-            font-weight: 700;
-            margin-top: 10px;
+        .card-profile .profile-content p {
+            color: #CED4DA; /* Light grey for secondary text */
         }
 
+        .card-profile .social-links a {
+            color: #FFFFFF; /* White links */
+        }
+        
+        .card-profile .social-links a:hover {
+            color: #CED4DA; /* Subtle hover effect */
+        }
+        
         /* Card 3 (Tech Stack): Medium box (1x2) */
         .card-tech-stack {
             grid-row: span 2;
@@ -155,13 +147,6 @@
             border-bottom: none;
         }
         
-        /* Card 4 (Case Study): Medium box (1x1) - Default size */
-        .card-case-study .study-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--color-accent);
-        }
-
         /* Card 6 (Playlist): Wide box at the bottom (3x1) */
         .card-playlist {
             grid-column: span 3;
@@ -169,6 +154,13 @@
             justify-content: center;
             text-align: center;
             min-height: 100px;
+        }
+        
+        /* Card 7 (Reflection): New Medium Card (1x1) */
+        .card-reflection .reflection-text {
+            font-style: italic;
+            line-height: 1.4;
+            color: var(--color-text-primary);
         }
 
         /* --- Responsiveness (Mobile Layout) --- */
@@ -195,6 +187,12 @@
             .card-location .time {
                 font-size: 1.5rem;
             }
+            
+            /* Disable aggressive zoom on touch devices */
+            .card:hover {
+                transform: none; 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
         }
     </style>
 </head>
@@ -211,9 +209,9 @@
                     <p><strong>Program:</strong> Food Science</p>
                     <p><strong>Year:</strong> Year 2</p>
                     <div class="social-links">
-                        <a href="#linkedin" target="_blank">LinkedIn</a>
-                        <a href="#github" target="_blank">GitHub</a>
-                        <a href="#portal" target="_blank">UMT Portal</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">UMT Portal</a>
                     </div>
                 </div>
             </div>
@@ -222,7 +220,7 @@
                 <div class="card-header">Current Location</div>
                 <div class="card-content">
                     <p>Campus: **UMT, Kuala Nerus**</p>
-                    <div class="time">10:12 AM</div> 
+                    <div class="time">10:55 AM</div>
                     <p style="color: var(--color-text-secondary); margin-top: 5px;">Monday, 15 December 2025</p>
                 </div>
             </div>
@@ -230,7 +228,7 @@
             <div class="card card-case-study">
                 <div class="card-header">Recent Research</div>
                 <div class="card-content">
-                    <p class="study-title">Starch Gelatinization in Local Kuih</p>
+                    <p class="card-title" style="margin-top: 0;">Starch Gelatinization in Local Kuih</p>
                     <p style="margin-top: 10px; font-style: italic;">Analyzing texture profiles of Kuih Lapis.</p>
                     <p style="color: var(--color-text-secondary);">Focus on physiochemical properties and ingredient ratios.</p>
                 </div>
@@ -255,13 +253,18 @@
                     <p style="color: var(--color-text-secondary);">Relaxing strolls at **Pantai UMT** after class.</p>
                 </div>
             </div>
+            
+            <div class="card card-reflection">
+                <div class="card-header">Why Food Tech Matters in Malaysia</div>
+                <div class="card-content">
+                    <p class="reflection-text">Sustainable food security is crucial for our future. By optimizing local processing methods, we can reduce waste and improve nutrition.</p>
+                </div>
+            </div>
 
             <div class="card card-playlist">
                 <div class="card-header">Study Soundtrack</div>
                 <div class="card-content">
-                    <p class="card-title">Lofi Hip-Hop Mix (Focus Mode)</p>
-                    <p style="color: var(--color-text-secondary);">*Placeholder for embedded music player*</p>
-                </div>
+                   [<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6QcTTMyNcOA2GTTNlcfyGs?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>]                </div>
             </div>
 
         </div>
